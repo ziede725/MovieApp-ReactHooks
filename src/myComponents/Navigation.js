@@ -2,6 +2,8 @@ import React from 'react' ;
 import Navbar from 'react-bootstrap/Navbar'
 import '../App.css'
 import ReactStars from "react-rating-stars-component";
+import { Button } from 'react-bootstrap'
+import {Link } from 'react-router-dom'
 
 
 const Navigation =(props)=>{
@@ -9,7 +11,9 @@ const Navigation =(props)=>{
 const ratingChanged = (newRating)=>{
     props.setRate(newRating)
    
+    
 }
+
     return (<div>
        <Navbar bg="danger" expand="lg">
            <div className ="navbar-wrapper">
@@ -21,8 +25,12 @@ const ratingChanged = (newRating)=>{
            </div>
            <div>filter by rate</div>
            <ReactStars count={5} onChange={ratingChanged} value={props.rate}/>
-          </div>
+        
+          </div> 
+        
+        
     </Navbar>
+        
         <br></br>
         
       

@@ -4,13 +4,14 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ReactStars from "react-rating-stars-component";
 import '../App.css'
+import MovieDescription from './MovieDescription'
+import  { BrowserRouter ,Link , Route , useParams} from 'react-router-dom'
 
 
 
 const MovieCard =(props)=>{
 
 const ratingChanged=(newRating)=>{
-   
   return newRating; 
 }
     return(
@@ -23,19 +24,24 @@ const ratingChanged=(newRating)=>{
   <Card.Body>
     <div className='card-Div'>
     <Card.Title>{props.title}</Card.Title>
-    <Card.Text>Description: 
+    <Card.Text> 
+      <div>
+      <Link to = {`/Home/MovieDescription/${props.id}`} >  Description: 
+      </Link>
+      </div>
+      
       {props.description}
     </Card.Text>
-    <div> <ReactStars count={5} onChange={ratingChanged} value={parseInt(props.rating)}/></div>
-      
-    <Button variant="primary">Watch Movie</Button>
+    <div> 
+      <ReactStars count={5} onChange={ratingChanged} value={parseInt(props.rating)}/>
+      </div>
     </div>
-
   </Card.Body>
 </Card>
 
+
         </>
     )
-   {console.log(props.rating)}
+
 }
 export default MovieCard ; 
